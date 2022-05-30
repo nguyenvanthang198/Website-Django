@@ -1,0 +1,42 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# tests and coverage
+*.pytest_cache
+.coverage
+# database & logs
+*.db
+*.sqlite3
+*.log
+*.sql
+# venv
+env
+venv
+.env
+
+# other
+.DS_Store
+
+# javascript
+package-lock.json
+
+staticfiles/*
+!staticfiles/.gitkeep 
+.vscode/symbols.json
+#core/settings.py
+core/dai.bk.folder
+
+<<<<<<< HEAD
+%(app_label)s/
+media/
+.vscode/
+.truongnv/
+.idea/*
+logger.txt
+=======
+#
+.idea/
+venv/
+>>>>>>> 95b639bbf802a005e8ceae80f88929ec919ef82d
