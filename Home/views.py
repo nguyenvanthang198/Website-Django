@@ -22,6 +22,17 @@ def IndexView(request):
     template = loader.get_template(str('Home/index.html'))
     return HttpResponse(template.render(context, request))
 
+def IndexViewContext():
+    context = {}
+    all_menus = Menu.objects.filter(parent_menu=None).order_by('parent_menu', 'order')
+    context['all_menus'] = all_menus
+
+    all_sub_menus = Menu.objects.filter(~Q(parent_menu=None)).order_by('parent_menu', 'order')
+    context['all_sub_menus'] = all_sub_menus
+
+    return context
+
+
 @csrf_exempt
 def ContactView(request):
     context = {}
@@ -103,3 +114,14 @@ def RegistersView(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+def profile_view(request):
+    context = {}
+    all_menus = Menu.objects.filter(parent_menu=None).order_by('parent_menu', 'order')
+    context['all_menus'] = all_menus
+
+    all_sub_menus = Menu.objects.filter(~Q(parent_menu=None)).order_by('parent_menu', 'order')
+    context['all_sub_menus'] = all_sub_menus
+    template = loader.get_template(str('Home/profile.html'))
+    return HttpResponse(template.render(context, request))

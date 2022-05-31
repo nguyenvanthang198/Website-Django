@@ -1,0 +1,91 @@
+{% extends "WorkspaceMgmt/base.html" %}
+
+{% load static %}
+{% load tz %}
+{% load i18n %}
+
+                {% block content %}
+                    <!-- DataTales Active Comment -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Contact Message</h6>
+                            <div style="padding: 1rem 0rem;">
+<!--                                <a href="{% url 'WorkspaceMgmt:ActiveComment_CreateView' %}"-->
+<!--                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i-->
+<!--                                class="fas fa-plus-circle fa-sm text-white-50"></i> New</a>-->
+<!--                        </div>    -->
+<!--                            <a class="btn btn-primary" href="{% url 'WorkspaceMgmt:ActiveComment_CreateView' %}">New</a>-->
+<!--                        </div>-->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Subject</th>
+                                            <th>Content</th>
+<!--                                            <th>Rate</th>-->
+                                            <th>Created At</th>
+                                            <th>  </th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Avatar</th>
+                                            <th>Subject</th>
+                                            <th>Content</th>
+<!--                                            <th>Rate</th>-->
+                                            <th>Created At</th>
+                                            <th>  </th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+{#                                        <tr>#}
+{#                                            <td>Tiger Nixon</td>#}
+{#                                            <td>System Architect</td>#}
+{#                                            <td>Edinburgh</td>#}
+{#                                            <td>61</td>#}
+{#                                            <td>2011/04/25</td>#}
+{#                                            <td>$320,800</td>#}
+{#                                        </tr>#}
+                                        {% if all_messages %}
+                                            {% for c in all_messages %}
+                                        <tr>
+                                            <td>
+<!--                                                <a href="{% url 'WorkspaceMgmt:ActiveComment_DetailView' slug=c.id %}">-->
+                                                    {{ c.name }}
+<!--                                                </a>-->
+                                            </td>
+                                            <td>{{ c.email }}</td>
+                                            <td>{{ c.subject }}</td>
+                                            <td>{{ c.content }}</td>
+<!--                                            <td>{{ c.rate }}</td>-->
+                                            <td>{{ c.created_at }}</td>
+                                            <td>
+<!--                                                <a href="{% url 'WorkspaceMgmt:ActiveComment_DetailView' slug=c.id %}"-->
+<!--                                                   class="btn btn-info btn-circle">-->
+<!--                                                        <i class="fas fa-eye"></i> </a>-->
+
+<!--                                                <a href="{% url 'WorkspaceMgmt:ActiveComment_EditView' slug=c.id %}" class="btn btn-warning btn-circle">-->
+<!--                                                        <i class="fas fa-edit"></i>-->
+<!--                                                </a>-->
+                                                <a href="{% url 'WorkspaceMgmt:ContactMessage_Delete' slug=c.id %}" class="btn btn btn-danger btn-circle"
+                                                   onclick="return confirm('Are you sure you want to delete this?')">
+                                                   <i class="fas fa-trash"></i>
+                                                </a>
+<!--                                                <a href="{% url 'WorkspaceMgmt:ActiveComment_Delete' slug=c.id %}" class="btn btn btn-danger btn-circle">-->
+<!--                                                    <i class="fas fa-trash"></i>-->
+<!--                                                </a>-->
+                                            </td>
+                                        </tr>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endblock %}

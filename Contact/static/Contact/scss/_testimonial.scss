@@ -1,0 +1,101 @@
+.popular-directorya-area{
+    background: #EBF0F8;
+
+    .properties{
+        margin: 0 12px;
+        .properties-caption{
+            background: #fff;
+            padding: 50px 29px 40px 30px;
+            height: 311px;
+            @media #{$sm}{
+                height: 311px;
+            }
+            @media #{$sm}{
+                height: 350px;
+            }
+            .ratting{
+                ul{
+                    margin-bottom: 22px;
+                    li{
+                        display: inline-block;
+                        i{
+                            color: $theme-color;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            h3{
+               a{
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 14px;
+                    display: block;
+                    @media #{$lg}{
+                        font-size: 16px;
+                    }
+               }
+                a:hover,.properties-card{
+                    color:$theme-color;
+    
+                }
+                img{
+                    display: inline-block;
+
+                }
+            }
+            P.p-pera{
+                color: #4C526E;
+                margin-bottom: 25px;
+                font-size: 16px;
+            }
+            p{
+                color: $heading-color;
+                font-size: 14px;
+                font-weight: 500;
+                a.woner{
+                    color: #2A2A2A;
+                    font-size: 14px;
+                    &:hover{
+                        color: $theme-color
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Arrow
+.testi-active{
+    button{
+        &.slick-arrow {
+            position: absolute;
+            border: 0;
+            padding: 0;
+            z-index: 2;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            left: auto;
+            background: none;
+            i{
+                font-size: 28px;
+                color:rgba(26, 33, 61,.4);
+                &:hover{
+                    color:rgb(26, 33, 61);
+                }
+            }
+        }
+        &.slick-prev {
+            left:10px;
+            top: -73px;
+            
+        }
+        &.slick-next {
+            right: 10px;
+            top: -73px;
+            
+        }
+    }
+    
+}
