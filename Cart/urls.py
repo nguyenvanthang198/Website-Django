@@ -14,8 +14,7 @@ from . import views
 app_name = 'Cart'
 
 urlpatterns = [
+    # path('', (views.Index), name='Index'),
     path('', (views.Index), name='Index'),
-
-
 ]
 # End of TFile

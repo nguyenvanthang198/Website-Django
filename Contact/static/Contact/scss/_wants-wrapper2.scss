@@ -1,0 +1,146 @@
+.want-wrapper2{
+   background: #0E1B50;
+    .wantToWork-area{
+        padding: 35px 36px 28px 50px;
+        @media #{$sm}{
+            padding: 35px 0px 28px 0px;
+        }
+        @media #{$xs}{
+            padding: 35px 0px 28px 0px;
+        }
+        .wants-wrapper {
+            @include flexbox();
+            align-items: center;
+            @media #{$xs}{
+                flex-wrap: wrap;
+            }
+            blockquote {
+                margin-right: 30px;
+            }
+        }
+        .wantToWork-caption{
+            h2{
+                font-family: $font_2;
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 1;
+                margin-bottom: 12px;
+                color: #fff;
+                
+                @media #{$md}{
+                    font-size: 30px; 
+                }
+                @media #{$sm}{
+                    font-size: 35px; 
+                }
+                @media #{$xs}{
+                    font-size: 25px; 
+                }
+            } 
+            p{
+                font-size: 16px;
+                margin-bottom: 0;
+                color:#C6C9D9;
+                font-weight: 300;
+            }
+        }    
+        .wantToWork-btn{
+            @media #{$sm}{
+                float: left;
+                margin-top: 30px;
+            }
+            @media #{$xs}{
+                float: left;
+                margin-top: 30px;
+            }
+            @media #{$md}{
+                // float: left;
+                margin-top: 30px;
+            }
+        }
+        .contact-now{
+            @media #{$md}{
+                float: left;
+            }
+            @media #{$sm}{
+                float: left;
+            }
+            @media #{$xs}{
+                float: left;
+            }
+            span {
+                font-family: $font_1;
+                font-size: 24px;
+                font-weight: 400;
+                margin-right: 31px;
+                
+                @media #{$lg}{
+                    font-size: 17px;
+                }
+                @media #{$sm}{
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+                @media #{$xs}{
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    .btn2 {
+    
+        background: $theme-color;
+        color: #ffff;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 12px 31px 12px 30px;
+        text-transform: capitalize;
+        border-radius: 30px;
+        cursor: pointer;
+        display: inline-block;
+        @media #{$xs}{
+            font-size: 14px;
+        }
+        @media #{$sm}{
+            font-size: 14px;
+        }
+        i{
+            padding-right: 12px;
+        }
+        &:hover{
+            color: #fff;
+        }
+    }
+    .sm-left{
+        @media #{$xs}{
+            float: left;
+            margin-top: 30px;
+        } 
+        @media #{$sm}{
+            float: left;
+            margin-top: 30px;
+        } 
+    }
+    .btn.w-btn {
+        padding: 18px 65px 18px 33px;
+    }
+    .double-btn.f-right {
+        @media #{$sm}{
+            float: left;
+        } 
+        @media #{$xs}{
+            float: left;
+        } 
+        
+    }
+    
+    .wantToWork-btn img {
+        margin-right: 9px;
+    }
+    
+  
+    
+    
+}
+

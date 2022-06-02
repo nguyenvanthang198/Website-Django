@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'Promotion',
     'Contact',
     'Product',
+    'Cart',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                 os.path.join(BASE_DIR, 'coolmate/templates'),
+                os.path.join(BASE_DIR, 'Cart/templates'),
                 os.path.join(BASE_DIR, 'Blog/templates'),
                 os.path.join(BASE_DIR, 'Home/templates'),
                 os.path.join(BASE_DIR, 'Contact/templates'),
@@ -156,6 +159,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     # BASE_DIR / "static",
     os.path.join(BASE_DIR, 'coolmate/static'),
+    os.path.join(BASE_DIR, 'Cart/static'),
     os.path.join(BASE_DIR, 'Blog/static'),
     os.path.join(BASE_DIR, 'Contact/static'),
     os.path.join(BASE_DIR, 'Home/static'),
@@ -168,3 +172,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+GOOGLE_MAPS_API_KEY = 'AIzaSyBJ-IMkV1e2UBpC5WpsH_t5hboZ38bUFF4'

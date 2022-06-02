@@ -18,4 +18,12 @@ def Index(request):
 
 from django.shortcuts import render
 
+from Home.views import IndexViewContext as dContext
+
+
+def Index(request):
+    context = dContext()
+    template = loader.get_template(str('Cart/index.html'))
+    return HttpResponse(template.render(context, request))
+
 # Create your views here.
