@@ -88,10 +88,10 @@
                         </tbody>
                     </table>
 
-                    <a href="{% static 'Cart/index.html' %}" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
+                    <a href="{% url 'Home:IndexView' %}" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
                             aria-hidden="true"></i>&nbsp;Quay
                         về trang chủ</a>
-                    <a href="checkout.html" class="btn btn-primary btn-md"><i
+                    <a href="{% url 'Cart:payment' %}" class="btn btn-primary btn-md"><i
                             class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Thanh toán</a>
                 </div>
             </div>

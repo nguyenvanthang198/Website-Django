@@ -1,9 +1,12 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.core.checks import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 # Create your views here.
 
@@ -87,7 +90,6 @@ def LoginView(request):
 def RegistersView(request):
     msg = None
     success = False
-
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -123,5 +125,24 @@ def profile_view(request):
 
     all_sub_menus = Menu.objects.filter(~Q(parent_menu=None)).order_by('parent_menu', 'order')
     context['all_sub_menus'] = all_sub_menus
+    profile = UserProfile.objects.all()
+    context['profile'] = profile
     template = loader.get_template(str('Home/profile.html'))
     return HttpResponse(template.render(context, request))
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('change_password')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'Home/change_password.html', {
+        "form": form
+    })

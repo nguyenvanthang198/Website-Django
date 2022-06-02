@@ -16,5 +16,8 @@ app_name = 'Cart'
 urlpatterns = [
     # path('', (views.Index), name='Index'),
     path('', (views.Index), name='Index'),
+    path('payment/', (views.PayMent), name='payment'),
+
+
 ]
 # End of TFile

@@ -27,3 +27,7 @@ def Index(request):
     return HttpResponse(template.render(context, request))
 
 # Create your views here.
+def PayMent(request):
+    context = dContext()
+    template = loader.get_template(str('Cart/payment.html'))
+    return HttpResponse(template.render(context, request))

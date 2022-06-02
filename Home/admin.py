@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from import_export import fields, resources
 from import_export.widgets import ForeignKeyWidget
 from import_export.admin import ImportExportModelAdmin
@@ -54,3 +55,29 @@ class MenuAdmin(ImportExportModelAdmin):
 
 admin.site.register(Menu, MenuAdmin)
 
+
+class UserProfileResource(resources.ModelResource):
+    class Meta:
+        model = UserProfile
+
+
+class UserProfileAdmin(ImportExportModelAdmin):
+    resource_class = UserProfileResource
+    list_display = (
+        'name',
+        'gender',
+        'biography',
+        'updated_at',
+        'created_at',
+    )
+    search_fields = (
+        'name',
+        'phone',
+    )
+    readonly_fields = (
+        'updated_at',
+        'created_at',
+    )
+
+
+admin.site.register(UserProfile, UserProfileAdmin)

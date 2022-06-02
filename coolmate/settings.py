@@ -173,3 +173,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GOOGLE_MAPS_API_KEY = 'AIzaSyBJ-IMkV1e2UBpC5WpsH_t5hboZ38bUFF4'
+MEDIA_URL = str('/media/')
+MEDIA_BASE = Path(__file__).parent.parent.parent
+
+MEDIA_ROOT = str('%s/media' % MEDIA_BASE)
