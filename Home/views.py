@@ -7,12 +7,13 @@ from django.template import loader
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-
+# from Home.models import *
 # Create your views here.
 
 # Create your views here.
 from .forms import LoginForm, SignUpForm
 from .models import *
+# from .views import IndexViewContext as dContext
 
 def IndexView(request):
     context = {}
@@ -91,16 +92,20 @@ def RegistersView(request):
     msg = None
     success = False
     if request.method == "POST":
+        print("todo: Tạo user")
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)
-
+            if user is None:
+                print("Tạo user thất bại")
+            else:
+                print("Tạo user thành công")
             msg = 'Đã thêm mới tài khoản - hãy <a href="/login">Đăng nhập</a>.'
             success = True
-
+            print("bạn đã đăng ký thành công")
             return redirect("/login/")
 
         else:
@@ -120,29 +125,36 @@ def logout_view(request):
 
 def profile_view(request):
     context = {}
+    user_rq = request.user
+    print(user_rq.username)
     all_menus = Menu.objects.filter(parent_menu=None).order_by('parent_menu', 'order')
     context['all_menus'] = all_menus
 
     all_sub_menus = Menu.objects.filter(~Q(parent_menu=None)).order_by('parent_menu', 'order')
     context['all_sub_menus'] = all_sub_menus
-    profile = UserProfile.objects.all()
+    profile = UserProfile.objects.filter(user=user_rq)
     context['profile'] = profile
     template = loader.get_template(str('Home/profile.html'))
     return HttpResponse(template.render(context, request))
 
 
 def change_password(request):
+    context = IndexViewContext()
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('change_password')
+            return redirect('/login')
         else:
             messages.error(request, 'Please correct the error below.')
+
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'Home/change_password.html', {
-        "form": form
-    })
+
+    context["form"] = form
+    # template = loader.get_template(str('Home/change_password.html'))
+
+    return render( request, 'Home/change_password.html',context)
+    # return HttpResponse(template.render(context, request))

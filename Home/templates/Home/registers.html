@@ -38,11 +38,15 @@
 				<div class="login100-form-title" style="background-image: url(../../static/Home/login2/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
 						Sign Up
+
 					</span>
 				</div>
 
 				<form class="login100-form validate-form" method="post" action="">
 					{% csrf_token %}
+					{%if msg%}
+					<h4 class="text-danger">{{msg}}</h4>
+						{%endif%}
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<div>
 							<span class="label-input100">Tên đăng nhập</span>
@@ -59,10 +63,10 @@
 						<span class="text-error">{{ form.email.errors }}</span>
 					</div>
 
-<!--					<div class="wrap-input100 validate-input m-b-26" data-validate="Name is required">-->
+<!--					<div class="wrap-input100 validate-input m-b-26" >-->
 <!--						<div>-->
-<!--							<span class="label-input100">Tên tài khoản</span>-->
-<!--							{{ form.name }}-->
+<!--							<span class="label-input100">Họ tên</span>-->
+<!--							{{ form.name1 }}-->
 <!--						</div>-->
 <!--						<span class="focus-input100"></span>-->
 <!--					</div>-->

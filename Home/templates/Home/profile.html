@@ -115,8 +115,7 @@
                             <div class="profile-img">
                                 <img src="{{profile.avatar.url}}" alt=""/>
                                 <div class="file btn btn-lg btn-primary">
-                                    Change Photo
-                                    <input type="file" name="file"/>
+                                    <input type="file" name="file"><a>Change Photo</a>
                                 </div>
                             </div>
                         </div>
@@ -126,9 +125,9 @@
                                             {{profile.name}}
                                         </h5>
                                         <h6>
-                                            Web Developer and Designer
+                                            <p>{{ profile.biography }}</p>
                                         </h6>
-                                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+<!--                                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>-->
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -146,7 +145,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-work">
-                                <p>{{ profile.biography }}</p>
+<!--                                <p>{{ profile.biography }}</p>-->
                             </div>
                         </div>
                         <div class="col-md-8">
